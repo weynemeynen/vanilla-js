@@ -1,0 +1,58 @@
+body {
+  min-width: 320px;
+}
+
+.font-size-1 {
+  font-size: calc(1.3rem + 0.5vw);
+}
+
+.rounded-left {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.rounded-right {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.card + .card::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-0.5px, -50%);
+  width: 1px;
+  background-color: lightgray;
+  height: 60%;
+}
+
+.card-text {
+  font-size: calc(1.29375rem + 0.525vw);
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+.list-group-item:hover .button-delete {
+  opacity: 1;
+}
+
+.button-delete {
+  top: 50%;
+  right: 0;
+  transform: translate(1.7rem, -50%);
+  opacity: 0;
+}
+
+.list-group-item .badge {
+  line-height: normal;
+}
+
+.list-group-item-danger .badge::before {
+  content: '-';
+}
+
+.list-group-item-success .badge::before {
+  content: '+';
+}

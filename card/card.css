@@ -1,0 +1,142 @@
+.card-container {
+  perspective: 2000px;
+  position: relative;
+  max-width: 100%;
+}
+
+.card {
+  position: absolute;
+  opacity: 0;
+  font-size: 1.5em;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 1;
+  z-index: 10;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+.card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+}
+
+.card.flip .card-inner {
+  transform: rotateX(180deg);
+}
+
+.card-inner-front,
+.card-inner-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-inner-front {
+  transform: rotateX(0deg);
+  z-index: 2;
+}
+
+.card-inner-back {
+  transform: rotateX(180deg);
+}
+
+.card-inner-back img {
+  max-width: 100%;
+  height: auto;
+}
+
+.svg-flip {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.overflow-y-auto {
+  overflow-y: auto !important;
+}
+
+.overflow-y-overlay {
+  overflow-y: overlay !important;
+}
+
+/**
+  media
+*/
+@media (max-width: 575px) {
+  .card-container {
+    height: 290px;
+  }
+
+  .shadow {
+    box-shadow: none !important;
+  }
+
+  .rounded-left {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+    border-bottom-left-radius: 0 !important;
+  }
+
+  [class*='col-'] {
+    height: auto !important;
+  }
+
+  .card-logo {
+    width: 100%;
+  }
+
+  .svg-flip {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .card-container {
+    height: 170px;
+    line-height: 1.2;
+  }
+
+  .card-logo {
+    width: 75%;
+  }
+
+  .svg-flip {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    height: 230px;
+    line-height: 1.5;
+  }
+
+  .svg-flip {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-container {
+    height: 310px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-container {
+    height: 370px;
+  }
+}

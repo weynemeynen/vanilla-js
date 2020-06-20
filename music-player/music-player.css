@@ -1,0 +1,97 @@
+@import 'svgs/svgs.css';
+
+.music-info {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
+}
+
+.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.progress {
+  cursor: pointer;
+}
+
+.progress-bar {
+  transition: width 0.1s ease;
+}
+
+.cover {
+  object-fit: cover;
+  width: inherit;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+  height: 119px;
+}
+
+.play .cover {
+  animation-play-state: running;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 575px) {
+  .cover {
+    display: none;
+  }
+  .card {
+    margin-top: 70px !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .cover {
+    height: 119px;
+  }
+  .card {
+    margin-top: 80px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .cover {
+    height: 164px;
+  }
+  .card {
+    margin-top: 130px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .cover {
+    height: 224px;
+  }
+  .card {
+    margin-top: 200px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cover {
+    height: 269px;
+  }
+  .card {
+    margin-top: 250px !important;
+  }
+}
