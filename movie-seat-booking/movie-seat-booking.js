@@ -110,9 +110,9 @@ function updateSelectedCount() {
   const selected = doc.getElementById('selected');
 
   selected.innerText = selectedSeats.length;
-  
+
   pictureContainer.dataset.price = selectedSeats.length * ticketPrice;
-  
+
   selectedSeats.length * ticketPrice;
 }
 
@@ -146,7 +146,7 @@ function populateUI() {
   const selectedMoviePicture = localStorage.getItem('selectedMoviePicture');
 
   if (selectedMoviePicture !== null) {
-    picture.src = selectedMoviePicture;
+    pictureContainer.querySelector('source[type="image/jpeg"]').srcset = picture.src = selectedMoviePicture;
   }
 }
 
