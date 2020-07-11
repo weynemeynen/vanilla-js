@@ -2,10 +2,9 @@ const doc = document;
 const movie = doc.getElementById('movie');
 const showcase = doc.querySelector('.showcase');
 const hall = doc.querySelector('.hall');
+const pictureContainer = doc.querySelector('[data-picture-container]');
 const picture = doc.getElementById('picture');
 const seats = createSeats(places = 56, columns = 8);
-const count = doc.getElementById('count');
-const total = doc.getElementById('total');
 
 const movies = [{
     "name": "Властелин колец",
@@ -34,8 +33,9 @@ let ticketPrice = +movie.value;
 function loadMovies(json) {
   const fragment = new DocumentFragment();
 
-  json.forEach(option => {
-    option = new Option(`${option.name} (${option.price} руб.)`, option.price);
+  json.forEach(opt => {
+    option = new Option(`${opt.name} (${opt.price} руб.)`, opt.price);
+    option.dataset.picture = opt.picture;
     fragment.append(option);
   });
 
@@ -99,6 +99,9 @@ function updateSelectedCount() {
   const free = hall.querySelectorAll('.btn-secondary:not(.btn-success)');
   doc.getElementById('free').innerText = free.length;
 
+  // ценник
+  const pictureContainer = doc.querySelector('[data-picture-container]');
+
   // номера мест
   const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
 
@@ -106,8 +109,19 @@ function updateSelectedCount() {
 
   const selected = doc.getElementById('selected');
 
-  count.innerText = selected.innerText = selectedSeats.length;
-  total.innerText = selectedSeats.length * ticketPrice;
+  selected.innerText = selectedSeats.length;
+  
+  pictureContainer.dataset.price = selectedSeats.length * ticketPrice;
+  
+  selectedSeats.length * ticketPrice;
+}
+
+function updatePicture(url) {
+  const sourceJpeg = pictureContainer.querySelector('source[type="image/jpeg"]');
+
+  sourceJpeg.srcset = picture.src = path(url);
+  picture.title = picture.alt = url;
+  return picture;
 }
 
 // Получение данных из localStorage populate UI
@@ -128,20 +142,34 @@ function populateUI() {
   if (selectedMovieIndex !== null) {
     movie.selectedIndex = selectedMovieIndex;
   }
+
+  const selectedMoviePicture = localStorage.getItem('selectedMoviePicture');
+
+  if (selectedMoviePicture !== null) {
+    picture.src = selectedMoviePicture;
+  }
 }
 
 // Сохранение index и price выбронного фильма
-function setMovieData(movieIndex, moviePrice) {
+function setMovieData(movieIndex, moviePrice, moviePicture) {
   localStorage.setItem('selectedMovieIndex', movieIndex);
   localStorage.setItem('selectedMoviePrice', moviePrice);
+  localStorage.setItem('selectedMoviePicture', moviePicture);
+}
+
+function path(url) {
+  return `images/${url}.jpg`;
 }
 
 // listeners
 // Выбранный фильм
 movie.addEventListener('change', (event) => {
   ticketPrice = +event.target.value;
-  setMovieData(event.target.selectedIndex, event.target.value);
+  let selectedOption = event.target.options[event.target.selectedIndex];
+  let picture = selectedOption.dataset.picture;
+  setMovieData(event.target.selectedIndex, event.target.value, path(picture));
   updateSelectedCount();
+  updatePicture(picture);
 });
 
 hall.addEventListener('click', (event) => {
