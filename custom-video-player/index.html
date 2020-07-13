@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кустарный видео плеер</title>
+  <link rel="stylesheet" href="custom-video-player.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8 mx-auto pt-2">
+        <h1>Кустарный видео плеер</h1>
+        <div class="vidio-player">
+          <div class="embed-responsive embed-responsive-16by9 bg-dark">
+            <video src="videos/gangster-song.mp4" id="video" class="screen w-100" poster="images/poster.jpg"></video>
+          </div>
+          <div class="controls align-items-center justify-content-between d-flex py-1">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-outline-secondary">
+                  <input type="radio" name="options" id="play" checked>
+                  <i class="bi bi-play"></i>
+                </label>
+              <label class="btn btn-outline-secondary">
+                  <input type="radio" name="options" id="stop">
+                  <i class="bi bi-stop"></i>
+                </label>
+            </div>
+            <div class="h-100 mx-1 progress w-100">
+              <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated bg-secondary" role="progressbar"></div>
+            </div>
+            <span id="timestamp" class="timestamp">00:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="custom-video-player.js"></script>
+</body>
+
+</html>
