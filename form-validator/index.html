@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Валидация формы</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .was-validated .form-control.is-invalid {
+        border-color: #dc3545 !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Валидация форм своими руками</title>
-  <link rel="stylesheet" href="../bootstrap.min.css">
-  <style>
-    .was-validated .form-control.is-invalid {
-      border-color: #dc3545 !important;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-    }
-    
-    .form-control.is-invalid:focus,
-    .was-validated .form-control.is-invalid:focus {
-      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, .25);
-    }
-  </style>
-</head>
+      .form-control.is-invalid:focus,
+      .was-validated .form-control.is-invalid:focus {
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+      }
+    </style>
+  </head>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <form class="needs-validation col-md-6 mt-4 mx-auto" novalidate>
-        <fieldset>
-          <legend>Валидация формы</legend>
-          <div class="form-group">
-            <label for="firstname">Имя</label>
-            <input type="text" class="form-control" id="firstname" defaultValue="имя" required>
-          </div>
-          <div class="form-group">
-            <label for="lastname">Фамилия</label>
-            <input type="text" class="form-control" id="lastname" required>
-          </div>
-          <div class="form-group">
-            <label for="email">email</label>
-            <input type="email" class="form-control" id="email" required>
-          </div>
-          <div class="form-group">
-            <label for="password">Пароль</label>
-            <input type="password" class="form-control" id="password" required>
-          </div>
+  <body>
+    <form
+      class="memory__request needs-validation container my-5"
+      novalidate
+      data-wave-animation
+    >
+      <fieldset class="row g-4">
+        <legend class="text-center fs-1 fw-bolder">Валидация формы</legend>
+        <div class="col-12">
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            defaultValue="имя"
+            required
+          />
+          <label for="firstname">Имя</label>
+        </div>
+        <div class="col-12">
+          <input type="text" class="form-control" id="lastname" required />
+          <label for="lastname">Фамилия</label>
+        </div>
+        <div class="col-6">
+          <input type="tel" name="tel" class="form-control" id="tel" required />
+          <label for="tel">Телефон</label>
+        </div>
+        <div class="col-6">
+          <input type="email" class="form-control" id="email" required />
+          <label for="email">email</label>
+        </div>
+        <div class="col-12">
+          <input type="password" class="form-control" id="password" required />
+          <label for="password">Пароль</label>
+        </div>
 
-          <button type="submit" class="btn btn-light my-3" disabled>Отправить</button>
-        </fieldset>
-      </form>
+        <div class="col-12">
+          <button type="submit" class="btn btn-lg btn-outline-secondary my-3">
+            Отправить
+          </button>
+        </div>
+      </fieldset>
+    </form>
+    <div class="memory__request-sent alert alert-success d-none">
+      <h1 class="alert-heading">Запрос отправлен</h1>
     </div>
-  </div>
-  <script src="form-validator.js"></script>
-</body>
-
+    <script src="./form-validator.js"></script>
+    <script src="./wave-animation.js"></script>
+  </body>
 </html>

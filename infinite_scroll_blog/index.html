@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My Blog</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <style>
+      .post-number {
+        position: absolute;
+        top: -1rem;
+        left: -1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        z-index: 1;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible"
-        content="ie=edge" />
-  <title>My Blog</title>
-  <link rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <style>
-    .post-number {
-      position: absolute;
-      top: -1rem;
-      left: -1rem;
-      width: 2.5rem;
-      height: 2.5rem;
-      z-index: 1;
-    }
+      .post-number::before {
+        content: attr(data-number);
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
 
-    .post-number::before {
-      content: attr(data-number);
-      text-shadow: 1px 1px 0 rgba(0, 0, 0, .1);
-    }
-  </style>
-</head>
-
-<body class="bg-success text-white">
-  <div class="container px-4">
-    <h1 class="text-center my-3">Бесконечный scroll и фильтр постов</h1>
-    <form class="filter-container mb-5">
-      <input type="email"
-             id="filter"
-             class="form-control form-control-lg rounded-0"
-             placeholder="фильтр постов..." />
-    </form>
-    <ul id="posts-container"
-        class="list-unstyled"></ul>
-    <div id="loader"
-         class="text-center mb-5 d-none">
-      <div class="spinner-border"
-           role="status">
-        <span class="sr-only">Loading...</span>
+  <body class="bg-success text-white">
+    <div class="container px-4">
+      <h1 class="text-center my-3">Бесконечный scroll и фильтр постов</h1>
+      <form class="filter-container mb-5">
+        <input
+          type="email"
+          id="filter"
+          class="form-control form-control-lg rounded-0"
+          placeholder="фильтр постов..."
+        />
+      </form>
+      <ul id="posts-container" class="list-unstyled"></ul>
+      <div id="loader" class="text-center mb-5 d-none">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
       </div>
     </div>
-  </div>
-  <script src="infinite_scroll_blog.js"></script>
-</body>
-
+    <script src="infinite_scroll_blog.js"></script>
+  </body>
 </html>

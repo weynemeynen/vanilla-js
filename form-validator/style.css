@@ -1,0 +1,38 @@
+/**
+ * bootstrap
+ */
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.was-validated .form-control.is-invalid,
+.was-validated .form-control:invalid,
+.was-validated .form-control.is-invalid:focus,
+.was-validated .form-control:invalid:focus {
+  border-color: var(--bs-danger);
+}
+
+input#email::invalid {
+  border-width: 3px;
+}
+
+/**
+ * animation
+ */
+[data-wave-animation] [class*='col'] {
+  position: relative;
+}
+
+[data-wave-animation] label {
+  transform: translate(20px, 6px);
+}
+
+[data-wave-animation] label span {
+  display: inline-block;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+[data-wave-animation] .form-control:focus + label span,
+[data-wave-animation] .focus + label span {
+  transform: translateY(-30px);
+}

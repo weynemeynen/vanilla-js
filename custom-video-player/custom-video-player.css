@@ -1,4 +1,3 @@
-@import '../bootstrap.min.css';
 body {
   min-width: 320px;
 }
@@ -16,7 +15,7 @@ body {
 }
 
 .bi::before {
-  content: "";
+  content: '';
   width: 16px;
   height: 16px;
   background-repeat: no-repeat;

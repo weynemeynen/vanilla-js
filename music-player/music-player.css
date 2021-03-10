@@ -27,8 +27,6 @@
 }
 
 .cover {
-  object-fit: cover;
-  width: inherit;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -93,5 +91,16 @@
   }
   .card {
     margin-top: 250px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1140px;
   }
 }
