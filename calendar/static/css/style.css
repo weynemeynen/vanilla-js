@@ -1,0 +1,17 @@
+.calendar table {
+  border-collapse: separate;
+  border-spacing: 0 0;
+}
+
+.calendar .table-bordered > :not(caption) > * > * {
+  border-width: 1px;
+}
+
+.calendar td {
+  text-align: center;
+  cursor: pointer;
+}
+
+.calendar td:hover {
+  background-color: whitesmoke;
+}
