@@ -1,2 +1,2 @@
 # vanilla-js
-чистый javascript
+голый javascript
