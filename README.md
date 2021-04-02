@@ -1,2 +1,2 @@
 # vanilla-js
-голый javascript
+мини проекты на голом JavaScript
