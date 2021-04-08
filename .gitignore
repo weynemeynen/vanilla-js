@@ -1,3 +1,7 @@
-node_modules/
-_project_starter/
-.vscode/
+node_modules
+.vscode
+
+_project_starter
+dom-array-methods
+infinite_scroll_blog
+sortable-list
