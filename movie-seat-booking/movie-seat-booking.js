@@ -7,20 +7,20 @@ const picture = doc.getElementById('picture');
 const seats = createSeats(places = 56, columns = 8);
 
 const movies = [{
-    "name": "Властелин колец",
-    "price": 1000,
-    "picture": "lord-of-rings"
-  },
-  {
-    "name": "Хоббит",
-    "price": 800,
-    "picture": "hobbit"
-  },
-  {
-    "name": "Джокер",
-    "price": 700,
-    "picture": "joker"
-  }
+  "name": "Властелин колец",
+  "price": 1000,
+  "picture": "lord-of-rings"
+},
+{
+  "name": "Хоббит",
+  "price": 800,
+  "picture": "hobbit"
+},
+{
+  "name": "Джокер",
+  "price": 700,
+  "picture": "joker"
+}
 ];
 
 occupiedSeats(27, 30, 36, 37, 45);

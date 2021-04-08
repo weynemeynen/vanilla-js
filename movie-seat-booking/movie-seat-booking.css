@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "rouble";
-  src: url("rouble.otf") format("opentype");
+  font-family: 'rouble';
+  src: url('rouble.otf') format('opentype');
 }
 
 body {
@@ -35,13 +35,14 @@ body {
 }
 
 picture[data-price]::after {
-  font-family: "rouble";
+  font-family: 'rouble';
   content: attr(data-price) 'w';
   position: absolute;
   top: 0;
-  right: 1rem;
+  right: 0.5rem;
   z-index: 1;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  text-shadow: 1px 1px 0 black, 0 0 .5em black;
+  text-shadow: 1px 1px 0 black, 0 0 0.5em black;
+  line-height: 1;
 }
