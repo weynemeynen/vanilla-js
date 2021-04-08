@@ -2,6 +2,7 @@ node_modules
 .vscode
 
 _project_starter
+js-native-blog
 # dom-array-methods
 # infinite_scroll_blog
 # sortable-list
