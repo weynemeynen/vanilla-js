@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>custom range slider</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body
+    class="d-flex flex-column align-items-center justify-content-center overflow-hidden min-vh-100"
+  >
+    <div class="container">
+      <div class="row">
+        <div
+          class="custom-range-slider col-10 col-sm-8 col-md-6 col-lg-5 mx-auto position-relative"
+        >
+          <input type="range" min="0" max="100" class="w-100" />
+          <label for="range" class="position-absolute" style="top: -25px"
+            >50</label
+          >
+        </div>
+      </div>
+    </div>
+    <script>
+      const range = document.querySelector(
+        '.custom-range-slider input[type="range"]'
+      )
+      let rangeWidth = parseInt(getComputedStyle(range).width, 10)
+
+      const label = range.nextElementSibling
+      label.style.left = parseInt((rangeWidth / 100) * range.value) + 'px'
+
+      range.addEventListener('input', (e) => {
+        label.innerHTML = +e.target.value
+
+        const min = +e.target.min
+        const max = +e.target.max
+
+        let targetWidth = parseInt(getComputedStyle(e.target).width, 10)
+
+        let labelWidth = parseInt(getComputedStyle(label).width, 10)
+
+        label.style.left =
+          +e.target.value * (targetWidth / max) -
+          labelWidth / 2 +
+          scale(+e.target.value, min, max, 20, 0) +
+          'px'
+      })
+
+      function scale(num, in_min, in_max, out_min, out_max) {
+        return (
+          ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+        )
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Progress Steps</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="d-flex flex-column align-items-center justify-content-center overflow-hidden min-vh-100"
+  >
+    <div id="app" class="container progress-widget text-center">
+      <h1 class="mb-5 text-start">Progress Steps</h1>
+      <div
+        class="progress mb-4 justify-content-between position-relative bg-transparent"
+      >
+        <div class="progress-bar"></div>
+        <div
+          class="progress__circle rounded-circle border border-3 border-primary"
+        ></div>
+        <div class="progress__circle rounded-circle border border-3"></div>
+        <div class="progress__circle rounded-circle border border-3"></div>
+        <div class="progress__circle rounded-circle border border-3"></div>
+      </div>
+      <button class="prev btn btn-outline-secondary btn-lg me-2" @click="prev">
+        назад
+      </button>
+      <button class="next btn btn-outline-secondary btn-lg">вперёд</button>
+    </div>
+    <script>
+      const progress = document.querySelector('.progress')
+      const progressBar = progress.querySelector('.progress-bar')
+      const circles = progress.querySelectorAll('.progress__circle')
+      circles.forEach((circle, index) => (circle.innerHTML = index + 1))
+
+      const progressWidget = document.querySelector('.progress-widget')
+      const prev = progressWidget.querySelector('.prev')
+      const next = progressWidget.querySelector('.next')
+
+      let currentActive = 1
+
+      prev.addEventListener('click', () => {
+        currentActive--
+        if (currentActive < 1) {
+          currentActive = 1
+        }
+        update()
+      })
+      next.addEventListener('click', () => {
+        currentActive++
+        if (currentActive > circles.length) {
+          currentActive = circles.length
+        }
+        update()
+      })
+
+      function update() {
+        circles.forEach((circle, index) => {
+          if (index < currentActive) {
+            circle.classList.add('border-primary')
+            circle.setAttribute('data-active', '')
+          } else {
+            circle.classList.remove('border-primary')
+            circle.removeAttribute('data-active')
+          }
+        })
+
+        const actives = progress.querySelectorAll('[data-active]')
+
+        progressBar.style.width =
+          ((actives.length - 1) / (circles.length - 1)) * 100 + '%'
+
+        if (currentActive === 1) {
+          prev.disabled = true
+        } else if (currentActive === circles.length) {
+          next.disabled = true
+        } else {
+          prev.disabled = next.disabled = false
+        }
+      }
+    </script>
+  </body>
+</html>
