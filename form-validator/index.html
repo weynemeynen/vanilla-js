@@ -28,39 +28,57 @@
       novalidate
       data-wave-animation
     >
-      <fieldset class="row g-4">
-        <legend class="text-center fs-1 fw-bolder">Валидация формы</legend>
-        <div class="col-12">
-          <input
-            type="text"
-            class="form-control"
-            id="firstname"
-            defaultValue="имя"
-            required
-          />
-          <label for="firstname">Имя</label>
-        </div>
-        <div class="col-12">
-          <input type="text" class="form-control" id="lastname" required />
-          <label for="lastname">Фамилия</label>
-        </div>
-        <div class="col-6">
-          <input type="tel" name="tel" class="form-control" id="tel" required />
-          <label for="tel">Телефон</label>
-        </div>
-        <div class="col-6">
-          <input type="email" class="form-control" id="email" required />
-          <label for="email">email</label>
-        </div>
-        <div class="col-12">
-          <input type="password" class="form-control" id="password" required />
-          <label for="password">Пароль</label>
-        </div>
+      <fieldset>
+        <!-- <legend class="text-center fs-1 fw-bolder">Валидация формы</legend> -->
+        <div class="col-lg-6 col-md-8 col-sm-10 col-xl-5 col-xxl-4 mx-auto">
+          <div class="gx-2 gy-4 row">
+            <div class="col-12">
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                defaultValue="имя"
+                required
+              />
+              <label for="firstname">Имя</label>
+            </div>
+            <div class="col-12">
+              <input type="text" class="form-control" id="lastname" required />
+              <label for="lastname">Фамилия</label>
+            </div>
+            <div class="col-6">
+              <input
+                type="tel"
+                name="tel"
+                class="form-control"
+                id="tel"
+                required
+              />
+              <label for="tel">Телефон</label>
+            </div>
+            <div class="col-6">
+              <input type="email" class="form-control" id="email" required />
+              <label for="email">email</label>
+            </div>
+            <div class="col-12">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                required
+              />
+              <label for="password">Пароль</label>
+            </div>
 
-        <div class="col-12">
-          <button type="submit" class="btn btn-lg btn-outline-secondary my-3">
-            Отправить
-          </button>
+            <div class="col-12">
+              <button
+                type="submit"
+                class="btn btn-lg btn-outline-secondary my-3"
+              >
+                Отправить
+              </button>
+            </div>
+          </div>
         </div>
       </fieldset>
     </form>
