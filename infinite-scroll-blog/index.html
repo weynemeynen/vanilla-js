@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>My Blog</title>
+    <title>infinite scroll blog</title>
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
     />
     <style>
       .post-number {
@@ -21,15 +21,17 @@
 
       .post-number::before {
         content: attr(data-number);
-        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 1);
       }
     </style>
   </head>
 
-  <body class="bg-success text-white">
+  <body>
     <div class="container px-4">
-      <h1 class="text-center my-3">Бесконечный scroll и фильтр постов</h1>
-      <form class="filter-container mb-5">
+      <h1 class="text-center my-3 display-6">
+        Бесконечный scroll и фильтр постов
+      </h1>
+      <form class="filter-container mb-5 col-sm-6 mx-auto">
         <input
           type="email"
           id="filter"
@@ -37,13 +39,13 @@
           placeholder="фильтр постов..."
         />
       </form>
-      <ul id="posts-container" class="list-unstyled"></ul>
+      <ul id="posts-container" class="list-unstyled col-sm-6 mx-auto"></ul>
       <div id="loader" class="text-center mb-5 d-none">
         <div class="spinner-border" role="status">
           <span class="sr-only">Loading...</span>
         </div>
       </div>
     </div>
-    <script src="infinite_scroll_blog.js"></script>
+    <script src="infinite-scroll-blog.js"></script>
   </body>
 </html>

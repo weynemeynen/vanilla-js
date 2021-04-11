@@ -34,7 +34,7 @@ async function showPosts() {
     const postNumber = getElement('span', [
       'post-number',
       'badge',
-      'badge-pill',
+      'rounded-pill',
       'bg-white',
       'd-flex',
       'align-items-center',
