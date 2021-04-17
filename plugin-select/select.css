@@ -1,4 +1,8 @@
-/* @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'; */
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+
+.select {
+  font-family: 'RocknRoll One', sans-serif;
+}
 
 .select__input {
   cursor: pointer;

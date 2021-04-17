@@ -1,6 +1,6 @@
 import { getTemplate } from './getTemplate.js';
 
-export class Select {
+export default class Select {
   constructor(selector, options) {
     this.$el = document.querySelector(selector);
     this.options = options;

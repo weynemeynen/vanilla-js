@@ -1,11 +1,11 @@
-import { Select } from './select.js';
+import Select from './select.js';
 
-const select = new Select('[data-select]', {
+const select = new Select('[data-plugin="select"]', {
   placeholder: 'выберете элемент',
   selectedId: '4',
   data: [
-    { id: '1', value: 'React' },
-    { id: '3', value: 'Vue' },
+    { id: '0', value: 'React' },
+    { id: '1', value: 'Vue' },
     { id: '2', value: 'Angular' }
   ],
   onSelect(item) {
@@ -13,6 +13,4 @@ const select = new Select('[data-select]', {
   },
 });
 
-// select.select('2');
-
-window.select = select;
+select.select('0');

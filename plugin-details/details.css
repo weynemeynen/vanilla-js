@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+details {
+  font-family: 'Amatic SC', cursive;
+}
+
+.details-backdrop {
+  display: none;
+}
+
+details[open] .details-backdrop {
+  display: block;
+}
