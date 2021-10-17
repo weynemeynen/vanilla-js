@@ -17,6 +17,7 @@ const songs = [
   'Golden-Slumbers',
   'The-End',
   'The-End-you-make',
+  'autogenous-training-for-alcohol-abusers'
 ];
 
 let songIndex = 3;
