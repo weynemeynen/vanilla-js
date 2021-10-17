@@ -20,7 +20,7 @@ const songs = [
   'autogenous-training-for-alcohol-abusers'
 ];
 
-let songIndex = 3;
+let songIndex = 6;
 
 loadSong(songs[songIndex]);
 
